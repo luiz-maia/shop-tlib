@@ -57,7 +57,6 @@ public class IndexServlet extends HttpServlet {
 			list = productDAO.getList();
 		}
 		request.setAttribute("listaProdutos", list);
-System.out.println("list.size() = " + list.size());
 		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);
 	}

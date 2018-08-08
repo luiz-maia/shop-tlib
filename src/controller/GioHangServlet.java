@@ -56,7 +56,7 @@ public class GioHangServlet extends HttpServlet {
 			// ta test xem gio hang co them duoc ko?
 			System.out.println(cart.size());
 			session.setAttribute("cart", cart);
-			response.sendRedirect("/shop/cart.jsp");
+			response.sendRedirect("/shop-taglib/cart.jsp");
 		} else{
 			if(command.equals("deleteCart")){
 				Product p = new Product(Integer.parseInt(ma_san_pham), 0, "", "",
@@ -67,7 +67,7 @@ public class GioHangServlet extends HttpServlet {
 				// ta test xem gio hang co them duoc ko?
 				System.out.println(cart.size());
 				session.setAttribute("cart", cart);
-				response.sendRedirect("/shop/cart.jsp");
+				response.sendRedirect("/shop-taglib/cart.jsp");
 			} else{
 				if(command.equals("removeCart")){
 					Product p = new Product(Integer.parseInt(ma_san_pham), 0, "", "",
@@ -77,7 +77,7 @@ public class GioHangServlet extends HttpServlet {
 
 					//lưu vào session
 					session.setAttribute("cart", cart);
-					response.sendRedirect("/shop/cart.jsp");
+					response.sendRedirect("/shop-taglib/cart.jsp");
 				}else{
 					if(command.equals("setCart")){
 						Product p = new Product(Integer.parseInt(ma_san_pham), 0, "", "",
@@ -86,7 +86,7 @@ public class GioHangServlet extends HttpServlet {
 						HttpSession session = request.getSession();
 
 						session.setAttribute("cart", cart);
-						response.sendRedirect("/shop/cart.jsp");
+						response.sendRedirect("/shop-taglib/cart.jsp");
 					}
 				}
 			}

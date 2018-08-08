@@ -164,11 +164,11 @@
 					</div>
 				</div>
 				<%if(cart.size()>0){ %>
-				<a class="checkout" href="history.jsp" style="text-decoration: none;">Lịch sử</a>
+				<a class="checkout" href="/HistoryServlet" style="text-decoration: none;">Lịch sử</a>
 				<a class="checkout" href="ConfirmServlet?username=<%=username %>" style="text-decoration: none;">Thanh
 					toán</a>
 				<%}else{ %>
-				<a class="checkout" href="history.jsp" style="text-decoration: none;">Lịch sử</a>
+				<a class="checkout" href="/HistoryServlet" style="text-decoration: none;">Lịch sử</a>
 				<a class="checkout" href="product.jsp" style="text-decoration: none;">Thanh
 					toán</a>
 				<%} %>

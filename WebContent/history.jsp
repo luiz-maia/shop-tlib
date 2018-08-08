@@ -63,18 +63,6 @@
 </style>
 </head>
 <body>
-	<%
-		String username = null;
-	Cookie[] cookies = request.getCookies();
-	if(cookies !=null)
-	{
-	for(Cookie cookie : cookies)
-	{
-	    if(cookie.getName().equals("username")) 
-	    	username = cookie.getValue();
-	}
-	}
-	%>
 	<div id="main">
 		<div id="head">
 			<img src="images/banner.jpg" width="1057px" height="200px" />
@@ -82,22 +70,17 @@
 		<div id="head-link">
 			<div id='menungang'>
 				<ul>
-					<li class='last'><a href="index.jsp"><span>Trang
-								chủ</span></a></li>
-					<li class='last'><a href="product.jsp"><span>Sản phẩm</span></a></li>
-					<li class='last'><a href="cart.jsp"><span>Giỏ hàng</span></a></li>
-					<li class='last'><a href="search_page.jsp"><span>Tìm kiếm</span></a></li>
-					<li class='last' style="float: right;"><a href="login.jsp"><span>Đăng
-								xuất</span></a></li>
-					<li class='last' style="float: right;"><a href="update_user.jsp?username=<%=username %>"><span><%= username %></span></a></li>			
+					<li class='last'><a href="index.jsp"><span>Home</span></a></li>
+					<li class='last'><a href="product.jsp"><span>Produtos</span></a></li>
+					<li class='last'><a href="cart.jsp"><span>Carrinho de compras</span></a></li>
+					<li class='last'><a href="search_page.jsp"><span>Pesquisa</span></a></li>
+					<li class='last' style="float: right;"><a href="login.jsp"><span>Login</span></a></li>
+					<li class='last' style="float: right;"><a href="update_user.jsp?username=${username}"><span>${username}</span></a></li>
 				</ul>
 			</div>
 		</div>
 		<div id="content">
-			
-
 			<div class="shopping-cart">
-
 				<div class="column-labels">
 					<label class="product-image">Hình ảnh</label> <label
 						class="product-details">Sản phẩm</label> <label
@@ -109,7 +92,7 @@
 					ProductDAOImpl productDAO = new ProductDAOImpl();
 							HistoryDAOImpl historyDAO = new HistoryDAOImpl();
 							UserDAOImpl userDAO = new UserDAOImpl();
-							User u= userDAO.getUser(username);
+							User u= userDAO.getUser("test");
 							
 							List<History> L= historyDAO.getList(u.getUser_id());
 							NumberFormat nf = NumberFormat.getInstance();
@@ -124,8 +107,7 @@
 				<div class="product">
 					<div class="product-image">
 						<img
-							src="sanpham/<%=productDAO.getProduct(h.getMa_san_pham())
-							.getHinh_anh()%>">
+							src="sanpham/<%=productDAO.getProduct(h.getMa_san_pham()).getHinh_anh()%>">
 					</div>
 					<div class="product-details">
 						<div class="product-title">

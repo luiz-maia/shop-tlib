@@ -83,7 +83,7 @@ public class ConfirmServlet extends HttpServlet {
 			   }
 		   }
 		   text+="Tổng thanh toán: <strong>"+ nf.format(total) +" VNĐ </strong>";
-				  
+/*				  
 		   Properties props = new Properties();
 		   props.put("mail.smtp.auth", "true");
 			props.put("mail.smtp.starttls.enable", "true"); 
@@ -107,9 +107,9 @@ public class ConfirmServlet extends HttpServlet {
 		   } catch (MessagingException e) {
 		     throw new RuntimeException(e);
 		   }
-		   cart.clear();
+*/		   cart.clear();
 		   request.getSession().setAttribute("cart", cart);
-		   response.sendRedirect("/shop/index.jsp");
+		   response.sendRedirect("/shop-taglib/index.jsp");
 	}
 
 	/**
